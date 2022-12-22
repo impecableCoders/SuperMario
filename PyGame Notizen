@@ -45,16 +45,16 @@ text:
 font = pygame.font.Font(!,font size)   		Macht ein text. ! = font type oder None.
 font_surface = font.render("text",!,color)      Macht aus dem text Ein Surface. ! = bei False Scahrfes text, bei True nicht Scharf
 ----------------------------------------------------------------------------------------------------------
-pygame.rect(left,top,width,height)						Macht ein Rect 
+pygame.rect(left,top,width,height)				    		Macht ein Rect 
 
-image = pygame.image.load(image type)					Lädt ein Image
+image = pygame.image.load(image type)				    	Lädt ein Image
 
 Plyer = image.get_rect(midleft = (100,100))				Macht aus dem Bild ein Rect, den wir Kontrolieren Können
 
-Player1.colliderect(Player2)							Wenn spieler1 beruhrt spieler2, bekommen wir output von 1
+Player1.colliderect(Player2)					        		Wenn spieler1 beruhrt spieler2, bekommen wir output von 1
 
-player.left += 1									Wir können da left,right,x,y,bottom usw.. nuten um den Plyer zu bewegen.
+player.left += 1								                	Wir können da left,right,x,y,bottom usw.. nuten um den Plyer zu bewegen.
 
-print ( player.left )								Da können wir wo left auf fenster ist
+print ( player.left )								              Da können wir wo left auf fenster ist
 
 
