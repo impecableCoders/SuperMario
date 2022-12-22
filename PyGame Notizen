@@ -1,26 +1,27 @@
-pygame.init()				das muss die erste Function sein
+pygame.init()			                                    	das muss die erste Function sein
 
 Modules für Fenster:
 display
 
 Beispiele:
-display.set_mode((width, height))	Macht ein Fenster auf und gibt Surface zurück
-display.update()				updatet das Fenster
-display.set_caption			setzt den Fenstertitel ein String
+display.set_mode((width, height))	                      Macht ein Fenster auf und gibt Surface zurück
+display.update()			                                	updatet das Fenster
+display.set_caption			                                setzt den Fenstertitel ein String
 
 
 Module time:
-pygame.time.Clock().tick(60)		Macht ein Clock Object
+
+pygame.time.Clock().tick(60)                          	Macht ein Clock Object
 
 
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 running = True
 
-while running :				Das ist die Gameloop und muss rein, sonst kann das Spiel nicht laufen	
+while running :			                                  	Das ist die Gameloop und muss rein, sonst kann das Spiel nicht laufen	
   
     p.display.update()
 
-    for event in p.event.get(): 	Die exit loop schaut ob das X gedrückt wurde damit das Fester schließt
+    for event in p.event.get(): 	                      Die exit loop schaut ob das X gedrückt wurde damit das Fester schließt
         if event.type == p.QUIT:
             print("GET OUT")
             p.quit()
@@ -28,22 +29,22 @@ while running :				Das ist die Gameloop und muss rein, sonst kann das Spiel nich
 
 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-Module Surface:
-Surface = pygame.Surface((width,height)) 		Macht ein Surface also Viereck und gibt Object zurück
-Surface.fill("red")                             Andert Farbe des Öbjekt
+Module Surface: 
+Surface = pygame.Surface((width,height)) 	          	Macht ein Surface also Viereck und gibt Object zurück
+Surface.fill("red")                                  Andert Farbe des Öbjekt
 
 
 screen =display.set_mode((width,height))
 screen.blit(surface, (x,y))
 
-pygame.image.load(image name)     			Du bekommst Surface als bild
+pygame.image.load(image name)     		             	Du bekommst Surface als bild
 
-pygame.image.load(image name).convert_alpha()	Lässt den game schneller laufen.
+pygame.image.load(image name).convert_alpha()	      Lässt den game schneller laufen.
 
 text:
 
-font = pygame.font.Font(!,font size)   		Macht ein text. ! = font type oder None.
-font_surface = font.render("text",!,color)      Macht aus dem text Ein Surface. ! = bei False Scahrfes text, bei True nicht Scharf
+font = pygame.font.Font(!,font size)   	          	Macht ein text. ! = font type oder None.
+font_surface = font.render("text",!,color)          Macht aus dem text Ein Surface. ! = bei False Scahrfes text, bei True nicht Scharf
 ----------------------------------------------------------------------------------------------------------
 pygame.rect(left,top,width,height)				    		Macht ein Rect 
 
