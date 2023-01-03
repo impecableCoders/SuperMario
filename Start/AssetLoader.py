@@ -7,7 +7,7 @@ def load_image_plyer(image, default_width_scale=30, default_height_scale=50) -> 
     return plyer_image
 
 
-def image_stein() -> pygame.Surface | pygame.SurfaceType:
+def image_stein() -> pygame.Surface:
     Stein_img = pygame.image.load("Bilder/Steine/1.png").convert_alpha()
     stein = pygame.transform.smoothscale(Stein_img, (30, 30))
     return stein
