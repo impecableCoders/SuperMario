@@ -26,3 +26,8 @@ def loadPlayerImages() -> dict:
             "rechts": load_image_plyer("rechts"),
             "right1": load_image_plyer("right1"),
             "unten": load_image_plyer("unten")}
+
+def loaditems(item_name, width=50, height=50):
+    item_image = pygame.image.load("Bilder/Items/" + item_name).convert_alpha()
+    item = pygame.transform.scale(item_image, (width, height))
+    return item
