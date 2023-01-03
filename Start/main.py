@@ -3,6 +3,7 @@ import pygame, sys, time
 import EngineTools as ET
 import AssetLoader as AL
 import EntitiesController as EC
+import EngineSystems as ES
 
 if __name__ == "__main__":
     def exitGame():
@@ -69,27 +70,8 @@ if __name__ == "__main__":
         shock_speed = stein.shock_speed
         stein.update()
 
-        # The Player Shock
-        if player_rect.colliderect(stein_rect) and keys[pygame.K_RIGHT]:
-            stein_rect.x += stein.shock_speed/3
+        ES.cross_check_entities([player], [stein], ES.collision_condition, EC.damage_event_entities)
 
-            player_rect.x = player_rect.x - shock_speed
-            player_sprite.activate_damage_animation()
-        if player_rect.colliderect(stein_rect) and keys[pygame.K_LEFT]:
-            stein_rect.x -= stein.shock_speed/3
-
-            player_rect.x = player_rect.x + shock_speed
-            player_sprite.activate_damage_animation()
-        if player_rect.colliderect(stein_rect) and keys[pygame.K_DOWN]:
-            stein_rect.y += stein.shock_speed/3
-
-            player_rect.y = player_rect.y - shock_speed
-            player_sprite.activate_damage_animation()
-        if player_rect.colliderect(stein_rect) and keys[pygame.K_UP]:
-            stein_rect.y -= stein.shock_speed/3
-
-            player_rect.y = player_rect.y + shock_speed
-            player_sprite.activate_damage_animation()
 
         screen.blit(background_image, (0, 0))
         player.draw(screen)
