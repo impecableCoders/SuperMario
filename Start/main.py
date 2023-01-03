@@ -48,6 +48,16 @@ if __name__ == "__main__":
                            EC.move_player,
                            EC.set_player_image_key
                        ])
+#----------------------------------------------------------
+    hertz_anzahl = 10
+    hertz_image = AL.loaditems("hertz.jpg",30,30)
+
+
+    def draw_hertz(hertz_zahl, x=0, y=0, width=30, height=30):
+
+        for i in range(hertz_zahl):
+            screen.blit(hertz_image, (0 + x + i * width, y))
+#-----------------------------------------------------------
 
     while True:
         # Handle events
@@ -75,26 +85,34 @@ if __name__ == "__main__":
 
             player_rect.x = player_rect.x - shock_speed
             player_sprite.activate_damage_animation()
+            hertz_anzahl-=1
+
         if player_rect.colliderect(stein_rect) and keys[pygame.K_LEFT]:
             stein_rect.x -= stein.shock_speed/3
 
             player_rect.x = player_rect.x + shock_speed
             player_sprite.activate_damage_animation()
+            hertz_anzahl -= 1
+
         if player_rect.colliderect(stein_rect) and keys[pygame.K_DOWN]:
             stein_rect.y += stein.shock_speed/3
 
             player_rect.y = player_rect.y - shock_speed
             player_sprite.activate_damage_animation()
+            hertz_anzahl -= 1
+
         if player_rect.colliderect(stein_rect) and keys[pygame.K_UP]:
             stein_rect.y -= stein.shock_speed/3
 
             player_rect.y = player_rect.y + shock_speed
             player_sprite.activate_damage_animation()
+            hertz_anzahl -= 1
+
 
         screen.blit(background_image, (0, 0))
         player.draw(screen)
         stein.draw(screen)
-
+        draw_hertz(hertz, y=20, x=20)
         # Update the display
         pygame.display.update()
 
