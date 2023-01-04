@@ -1,12 +1,38 @@
 import pygame, random
 import EngineTools as ET
-import math
 
 globalValues = {
     "screen_height": 0,
     "screen_width": 0,
     "keys": []
 }
+
+
+def damage_event_entities(victim_entity: ET.Entity, attack_entity: ET.Entity):
+    ve_rect = victim_entity.rect
+    ae_rect = attack_entity.rect
+
+    distance_x = ae_rect.centerx - ve_rect.centerx
+    distance_y = ae_rect.centery - ve_rect.centery
+
+    if abs(distance_x/ve_rect.w) > abs(distance_y/ve_rect.h):
+        if distance_x > 0:
+            ae_rect.x += attack_entity.shock_speed / 3
+            ve_rect.x -= attack_entity.shock_speed
+            victim_entity.sprite.activate_damage_animation()
+        elif distance_x < 0:
+            ae_rect.x -= attack_entity.shock_speed / 3
+            ve_rect.x += attack_entity.shock_speed
+            victim_entity.sprite.activate_damage_animation()
+    else:
+        if distance_y > 0:
+            ae_rect.y += attack_entity.shock_speed / 3
+            ve_rect.y -= attack_entity.shock_speed
+            victim_entity.sprite.activate_damage_animation()
+        elif distance_y < 0:
+            ae_rect.y -= attack_entity.shock_speed / 3
+            ve_rect.y += attack_entity.shock_speed
+            victim_entity.sprite.activate_damage_animation()
 
 
 def Keep_The_Opj_On_Screen(entity: ET.Entity):
@@ -75,13 +101,19 @@ def move_player(entity: ET.Entity):
     keys = globalValues["keys"]
     plyer_speed = entity.speed
 
-    if keys[pygame.K_RIGHT] and not keys[pygame.K_LEFT]: entity.vel_x = plyer_speed
-    elif keys[pygame.K_LEFT] and not keys[pygame.K_RIGHT]: entity.vel_x = -plyer_speed
-    else: entity.vel_x = 0
+    if keys[pygame.K_RIGHT] and not keys[pygame.K_LEFT]:
+        entity.vel_x = plyer_speed
+    elif keys[pygame.K_LEFT] and not keys[pygame.K_RIGHT]:
+        entity.vel_x = -plyer_speed
+    else:
+        entity.vel_x = 0
 
-    if keys[pygame.K_UP]: entity.vel_y = -plyer_speed
-    elif keys[pygame.K_DOWN]: entity.vel_y = plyer_speed
-    else: entity.vel_y = 0
+    if keys[pygame.K_UP]:
+        entity.vel_y = -plyer_speed
+    elif keys[pygame.K_DOWN]:
+        entity.vel_y = plyer_speed
+    else:
+        entity.vel_y = 0
 
 
 def set_player_image_key(entity: ET.Entity):
