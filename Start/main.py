@@ -86,3 +86,8 @@ if __name__ == "__main__":
         player.draw(screen)
         stein.draw(screen)
         draw_hertz(hertzimport pygame, sys, time)
+        # Update the display
+        pygame.display.update()
+
+        # Limit the frame rate to 60 FPS
+        clock.tick(60)
