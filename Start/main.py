@@ -85,7 +85,7 @@ if __name__ == "__main__":
         screen.blit(background_image, (0, 0))
         player.draw(screen)
         stein.draw(screen)
-        draw_hertz(hertzimport pygame, sys, time)
+        draw_hertz(hertz_anzahl pygame, sys, time)
         # Update the display
         pygame.display.update()
 
