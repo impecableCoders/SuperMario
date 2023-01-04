@@ -49,6 +49,16 @@ if __name__ == "__main__":
                            EC.move_player,
                            EC.set_player_image_key
                        ])
+#----------------------------------------------------------
+    hertz_anzahl = 10
+    hertz_image = AL.loaditems("hertz.jpg",30,30)
+
+
+    def draw_hertz(hertz_zahl, x=0, y=0, width=30, height=30):
+
+        for i in range(hertz_zahl):
+            screen.blit(hertz_image, (0 + x + i * width, y))
+#-----------------------------------------------------------
 
     while True:
         # Handle events
@@ -72,13 +82,7 @@ if __name__ == "__main__":
 
         ES.cross_check_entities([player], [stein], ES.collision_condition, EC.damage_event_entities)
 
-
         screen.blit(background_image, (0, 0))
         player.draw(screen)
         stein.draw(screen)
-
-        # Update the display
-        pygame.display.update()
-
-        # Limit the frame rate to 60 FPS
-        clock.tick(60)
+        draw_hertz(hertzimport pygame, sys, time
